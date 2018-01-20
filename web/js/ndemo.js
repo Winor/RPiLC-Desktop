@@ -1,7 +1,7 @@
 fixScale(document);
 
 var val = document.getElementById('rgbValue');
-var socket = io.connect();
+var socket = io.connect('http://10.0.0.11:80', {reconnect: true});
 var hexi;
 var hardset;
 var fade;
@@ -125,7 +125,12 @@ colorselect = function(mana) {
 
 
 
+const {ipcRenderer} = require('electron');
+// [...]
 
+ipcRenderer.on('fadeoc', (event, color) => {
+fadeoc(color);
+});
 
 
 

@@ -82,20 +82,30 @@ app.on('activate', () => {
 let tray = null
 
 app.on('ready', () => {
-      tray = new Tray('web/favicon.ico')
-      const contextMenu = Menu.buildFromTemplate([
-            {
-              label: 'Show App',
-              click: function() {
-                win.show();
-              }
-            },
-            {
-              label: 'Quit',
-              click: function() {
-                app.isQuiting = true;
-                app.quit();
-              } } ])
-              tray.setToolTip('RPiLC Desktop')
-              tray.setContextMenu(contextMenu)
-          })
+  tray = new Tray('web/favicon.ico')
+  const contextMenu = Menu.buildFromTemplate([{
+      label: 'Show App',
+      click: function() {
+        win.show();
+      }
+    },
+
+    {
+      label: 'Red Light',
+      click: function() {
+        win.webContents.send('fadeoc', "#ff0000");
+      }
+    },
+
+    {
+      label: 'Quit',
+      click: function() {
+        app.isQuiting = true;
+        app.quit();
+      }
+    }
+
+  ])
+  tray.setToolTip('RPiLC Desktop')
+  tray.setContextMenu(contextMenu)
+})
