@@ -14,10 +14,11 @@ let win
 function createWindow() {
   // Create the browser window.
   win = new BrowserWindow({
-    width: 800,
-    height: 600,
+    width: 500,
+    height: 720,
+    frame: false,
     title: "RPiLC Desktop",
-    icon: "web/favicon96x96.png"
+    icon: "client/icons/favicon96x96.png"
   })
 
   win.on('minimize', function(event) {
@@ -35,13 +36,13 @@ function createWindow() {
   });
   // and load the index.html of the app.
   win.loadURL(url.format({
-    pathname: path.join(__dirname, 'web/index.html'),
+    pathname: path.join(__dirname, 'client/index.html'),
     protocol: 'file:',
     slashes: true
   }))
 
   // Open the DevTools.
-  //  win.webContents.openDevTools()
+    win.webContents.openDevTools()
 
   // Emitted when the window is closed.
   win.on('closed', () => {
@@ -82,7 +83,7 @@ app.on('activate', () => {
 let tray = null
 
 app.on('ready', () => {
-  tray = new Tray('web/favicon.ico')
+  tray = new Tray('Client/favicon.ico')
   const contextMenu = Menu.buildFromTemplate([{
       label: 'Show App',
       click: function() {

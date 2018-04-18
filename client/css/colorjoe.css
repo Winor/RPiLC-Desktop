@@ -11,17 +11,12 @@
 }
 
 .colorPicker {
-    background: #333;
-    border: 1px solid #0c0c0c;
-    -moz-border-radius: .3em;
-    border-radius: .3em;
-    margin: 1em;
-    display: inline-block;
-}
-
-.colorPicker .extras {
-    float: right;
-    margin: 0.5em;
+	background: #303030;
+	border: 1px solid #1b1b1b;
+	-moz-border-radius: .3em;
+	/* border-radius: .3em; */
+	margin: 1em;
+	display: inline-block;
 }
 
 .colorPicker .extras .currentColorContainer {
@@ -94,24 +89,27 @@
     position: absolute;
 }
 .colorPicker .twod .pointer .shape1 {
-    -webkit-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    width: 10px;
-    height: 10px;
-    border: 2px solid black;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
+	-webkit-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	/* width: 10px; */
+	/* height: 10px; */
+	border: 2px solid black;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+  filter: invert(100%);
 }
 .colorPicker .twod .pointer .shape2 {
-    -webkit-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    width: 10px;
-    height: 10px;
-    border: 2px solid white;
-    -moz-border-radius: 4px;
-    border-radius: 4px;
+	-webkit-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	width: 10px;
+	height: 10px;
+	border: 2px solid #848484;
+	-moz-border-radius: 4px;
+	/* border-radius: 4px; */
+	background-color: #fff3;
+  filter: invert(100%);
 }
 
 .colorPicker .oned {
@@ -132,13 +130,14 @@
     z-index: 2;
 }
 .colorPicker .oned .pointer .shape {
-    position: absolute;
-    margin-left: -1px;
-    margin-top: -4px;
-    height: 5px;
-    border: 2px solid black;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
+	position: absolute;
+	margin-left: -1px;
+	margin-top: -4px;
+	height: 6px;
+	background-color: rgba(0, 0, 0, 0.38);
+	border-right: 5px solid #1a1a1a;
+	border-bottom-right-radius: 5px;
+	border-top-right-radius: 5px;
 }
 /* gradients, tweak as needed based on which browsers you want to support */
 .colorPicker .oned .bg {
