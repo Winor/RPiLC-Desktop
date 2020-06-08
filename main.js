@@ -11,38 +11,38 @@ const url = require('url')
 // be closed automatically when the JavaScript object is garbage collected.
 let win
 
-function createWindow() {
+function createWindow () {
   // Create the browser window.
   win = new BrowserWindow({
     width: 500,
     height: 720,
     frame: false,
-    title: "RPiLC Desktop",
-    icon: "client/icons/favicon96x96.png"
+    title: 'RPiLC Desktop',
+    icon: 'RPiLC/client/favicon.ico'
   })
 
-  win.on('minimize', function(event) {
-    event.preventDefault();
-    win.hide();
-  });
+  win.on('minimize', function (event) {
+    event.preventDefault()
+    win.hide()
+  })
 
-  win.on('close', function(event) {
+  win.on('close', function (event) {
     if (!app.isQuiting) {
-      event.preventDefault();
-      win.hide();
+      event.preventDefault()
+      win.hide()
     }
 
-    return false;
-  });
+    return false
+  })
   // and load the index.html of the app.
   win.loadURL(url.format({
-    pathname: path.join(__dirname, 'client/index.html'),
+    pathname: path.join(__dirname, 'RPiLC/client/index.html'),
     protocol: 'file:',
     slashes: true
   }))
 
   // Open the DevTools.
-    win.webContents.openDevTools()
+  win.webContents.openDevTools()
 
   // Emitted when the window is closed.
   win.on('closed', () => {
@@ -57,7 +57,6 @@ function createWindow() {
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
 app.on('ready', createWindow)
-
 
 // Quit when all windows are closed.
 app.on('window-all-closed', () => {
@@ -79,32 +78,31 @@ app.on('activate', () => {
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
 
-
 let tray = null
 
 app.on('ready', () => {
-  tray = new Tray('Client/favicon.ico')
+  tray = new Tray('RPiLC/Client/favicon.ico')
   const contextMenu = Menu.buildFromTemplate([{
-      label: 'Show App',
-      click: function() {
-        win.show();
-      }
-    },
-
-    {
-      label: 'Red Light',
-      click: function() {
-        win.webContents.send('fadeoc', "#ff0000");
-      }
-    },
-
-    {
-      label: 'Quit',
-      click: function() {
-        app.isQuiting = true;
-        app.quit();
-      }
+    label: 'Show App',
+    click: function () {
+      win.show()
     }
+  },
+
+  {
+    label: 'Red Light',
+    click: function () {
+      win.webContents.send('fadeoc', '#ff0000')
+    }
+  },
+
+  {
+    label: 'Quit',
+    click: function () {
+      app.isQuiting = true
+      app.quit()
+    }
+  }
 
   ])
   tray.setToolTip('RPiLC Desktop')
