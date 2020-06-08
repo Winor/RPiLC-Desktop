@@ -1,0 +1,3 @@
+[submodule "RPiLC"]
+	path = RPiLC
+	url = https://github.com/Winor/RPiLC
